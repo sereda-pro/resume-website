@@ -1,0 +1,67 @@
+@import '../../../styles/colors';
+
+.inputComponent {
+	position: relative;
+	margin-bottom: 30px;
+
+	.input_label {
+		margin: 0;
+		position: relative;
+
+		input {
+			position: relative;
+			padding: 10px 0;
+			margin: 0;
+			border: none;
+			font-size: 16px;
+			background: transparent;
+			border-bottom: 2px solid $t-white;
+			outline: none;
+			color: white;
+
+			&::placeholder {
+				color: transparent;
+			}
+
+			&:focus ~ span,
+			&:not(:placeholder-shown) ~ span {
+  				//transform: translateY(-20px) translateX(-7px) scale(0.75);
+				top: -15px;
+				font-size: 12px;
+			}
+			
+
+			&:focus {
+				outline: none;
+			}
+
+			&:-webkit-autofill,
+			&:-webkit-autofill:hover, 
+			&:-webkit-autofill:focus {
+				border-bottom: 2px solid $t-white;
+				-webkit-text-fill-color: white;
+				background: transparent;
+				transition: background-color 5000s ease-in-out 0s;
+			}
+		}
+
+		span {
+			font-size: 16px;
+			position: absolute;
+			top: 9px;
+			left: 0;
+			pointer-events: none;
+			transition: 0.4s;
+			display: block;
+		}
+	}
+
+	.error {
+		color: $c-yellow;
+		font-size: 12px;
+		position: absolute;
+		right: 0;
+		top: 50px
+
+	}
+}

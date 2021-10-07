@@ -1,0 +1,30 @@
+@import '../../styles/colors';
+
+.todoItem {
+	li {
+		display: flex;
+		justify-content: flex-start;
+		//align-items: center;
+		gap: 20px;
+		border: 1px solid rgb(197, 197, 197);
+		border-radius: 5px;
+		padding: 7px 15px;
+		margin: 10px 10px;
+		width: 472px;
+		position: relative;
+
+		input:checked + span {
+			text-decoration: line-through;
+		}
+
+		.delete {
+			position: absolute;
+			right: 15px;
+			top: -1px;
+			font-size: 30px;
+			color: red;
+			cursor: pointer;
+		}
+	}
+
+}

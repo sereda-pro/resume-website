@@ -1,0 +1,56 @@
+@import '../../../styles/colors';
+
+.notification {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 30px 10px 0 0;
+	padding: 10px 20px;
+	background: $grad-white;
+	font-size: 12px;
+	width: 350px;
+	border-radius: 0 5px 5px 0;
+
+	p {
+		line-height: 15px;
+		margin: 0 0;
+	}
+
+	.close {
+		position: absolute;
+		top: 0px;
+		right: 10px;
+	}
+}
+
+.red {
+	border-left: 5px solid $c-red;
+
+	svg {
+			fill: $c-red;
+		}
+}
+
+.yellow {
+	border-left: 5px solid $c-yellow;
+
+	svg {
+			fill: $c-yellow;
+		}
+}
+
+.grin {
+	border-left: 5px solid $c-grin;
+
+	svg {
+			fill: $c-grin;
+		}
+}
+
+.grey {
+	border-left: 5px solid $c-grey;
+
+	svg {
+			fill: $c-grey;
+		}
+}

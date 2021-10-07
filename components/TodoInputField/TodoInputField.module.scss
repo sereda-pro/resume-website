@@ -1,0 +1,28 @@
+@import '../../styles/colors';
+
+.todoInputField {
+
+	label > input {
+		padding: 9px 15px;
+		border-radius: 5px 0 0 5px;
+		margin: 0 0 20px 50px;
+		border: 1px solid rgb(197, 197, 197);
+		width: 350px;
+	}
+
+	.btn {
+		padding: 10px 10px;
+		font-size: 13px;
+		border-radius: 0 5px 5px 0;
+		border: none;
+		background-color: rgb(197, 197, 197);
+		transition: all ease-in 0.3s;
+
+		&:hover {
+			background-color: rgb(124, 124, 124);
+			color:rgb(230, 230, 230);
+		}
+	}
+
+}
+

@@ -1,0 +1,41 @@
+@import '../../styles/colors';
+
+.form {
+		position: relative;
+		height: 100%;
+		display: grid;
+		justify-content: center;
+		align-content: center;
+		
+		> .htag {
+			color: $t-black;
+			font-size: 150px;
+			position: absolute;
+			bottom: 70px;
+			left: -13px;
+			font-weight: 700;
+		}
+
+		form {
+			display: grid;
+			justify-items: end;
+
+			label {
+				display: block;
+				margin: 40px 0 0 0;
+				font-size: 12px;
+			}
+			
+			.input {
+				width: 300px;
+				margin: 0 0;
+			}
+
+			.btn {
+				margin: 15px 0 0 0;
+				color: $t-black;
+				font-weight: 600;
+			}
+		}
+	}
+

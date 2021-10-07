@@ -1,0 +1,97 @@
+@import '../../../styles/colors';
+
+.button {
+	position: relative;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: normal;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.primary {
+	color: white;
+	border: none;
+	border-radius: 5px;
+	background: $grad-orange;
+	transition: all 0.3s ease;
+
+	&:hover {
+		-webkit-box-shadow: 0 0px 10px 0 rgba(50, 50, 50, 0.65);
+		-moz-box-shadow: 0 0px 10px 0 rgba(50, 50, 50, 0.65);
+		box-shadow: 0 0px 10px 0 rgba(56, 29, 29, 0.65);
+	}
+
+	&:active {
+		-webkit-box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+		-moz-box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+		box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+	}
+
+	svg {
+		fill: white;
+	}
+}
+
+.secondary {
+	//color: white;
+	border: none;
+	border-radius: 3px;
+	background: $grad-white;
+	transition: all 0.3s ease;
+
+	&:hover {
+		-webkit-box-shadow: 0 0px 10px 0 rgba(50, 50, 50, 0.65);
+		-moz-box-shadow: 0 0px 10px 0 rgba(50, 50, 50, 0.65);
+		box-shadow: 0 0px 10px 0 rgba(56, 29, 29, 0.65);
+	}
+
+	&:active {
+		-webkit-box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+		-moz-box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+		box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+	}
+
+	svg {
+		fill: $color-font;
+	}
+}
+
+.ghost {
+	color: white;
+	border: none;
+	border-radius: 5px;
+	background: $grad-dark;
+	transition: all 0.3s ease;
+
+	&:hover {
+		-webkit-box-shadow: 0 0px 10px 0 rgba(50, 50, 50, 0.65);
+		-moz-box-shadow: 0 0px 10px 0 rgba(50, 50, 50, 0.65);
+		box-shadow: 0 0px 10px 0 rgba(56, 29, 29, 0.65);
+	}
+
+	&:active {
+		-webkit-box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+		-moz-box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+		box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
+	}
+
+	svg {
+		fill: white;
+	}
+}
+
+.arrow {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.down {
+	transition: all 0.3s;
+	transform: rotate(90deg);
+}
+
+@media (max-width: 600px) {
+	
+}
