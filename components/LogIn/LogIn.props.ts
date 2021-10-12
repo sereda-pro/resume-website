@@ -10,7 +10,3 @@ export interface IFormLogIn {
 	email: string,
 	password: string,
 }
-
-export interface ISendFormLogIn {
-	message: string,
-}

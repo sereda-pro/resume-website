@@ -1,16 +1,36 @@
 import styles from './DevResumePage.module.scss';
 import { DevResumePageProps } from './DevResumePage.props';
-import axios from 'axios';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { autoLogin } from '../../store/authSlice';
+import { Logout } from '../../components';
 
 
 export const DevResumePage = ({children, ...props}: DevResumePageProps) => {
 
-	axios.get('https://app-law-society-default-rtdb.europe-west1.firebasedatabase.app/contactus.json').
-		then((response) => console.log(response));
+	const router = useRouter();
+	const dispatch = useAppDispatch();
+	dispatch(autoLogin());
+	const token = useAppSelector(state => state.auth.token);
+	useEffect(() => {
+		if (!token) {
+			console.log('переход на главную страницу');
+			setTimeout(() => router.push('/'), 2000);
+		}	
+	}, [token]);
 
 	return (
-		<div className={styles.devResume}>
-			Список заявок
-		</div>
+		<>
+			{token ? 
+				<div className={styles.devResume}>
+					Резюме
+					<Logout />
+				</div>  
+			: 
+				<h1>Пока</h1>
+			}
+
+		</>
 	);
 };

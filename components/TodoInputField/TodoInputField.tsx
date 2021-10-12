@@ -1,7 +1,7 @@
 import { TodoInputFieldProps } from './TodoInputField.props';
 import styles from './TodoInputField.module.scss';
 import { useAppDispatch } from '../../store/hooks';
-import { addTodo } from '../../store/todoSlice';
+import { addTodo, addNewTodo } from '../../store/todoSlice';
 
 export function TodoInputField( { text, setText,  className, children, ...props }: TodoInputFieldProps ): JSX.Element {
 
@@ -14,7 +14,7 @@ export function TodoInputField( { text, setText,  className, children, ...props 
 				<button  
 					className={styles.btn} 
 					onClick={() => {
-						dispatch(addTodo(text));
+						dispatch(addNewTodo({title: text}));
 						setText('');
 					}}
 				>Добавить запись</button> 

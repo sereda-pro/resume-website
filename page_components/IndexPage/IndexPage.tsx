@@ -56,7 +56,7 @@ export const IndexPage = ({children, ...props}: IndexPageProps) => {
 									<span className={styles.emojio}>&#128075;</span>
 									<Htag tag='h1' className={styles.htag}>Привет!</Htag>
 									<p>Наверное вы тут не случайно?</p>
-									<p>Для входа на сайт пожалуйста введите логин и пароль, он должен быть вам известен.</p>
+									<p>Для входа на сайт пожалуйста введите e-mail и пароль, он должен быть вам известен.</p>
 								</motion.div>
 							</AnimatePresence> :
 							
@@ -70,8 +70,8 @@ export const IndexPage = ({children, ...props}: IndexPageProps) => {
 							>
 								<span className={styles.emojio}>&#128563;</span>
 								<Htag tag='h1' className={styles.htag}>Неожиданно!</Htag>
-								<p>Вы хотите зарегистрироваться?</p>
-								<p>Ну тогда добро пожаловать в нашу компанию <span>анонимных алкоголиков</span>.</p>
+								<p>А вы настойчивый... все же хотите войти?</p>
+								<p>Ну что ж, заполняйте поля формы и давайте знакомиться.</p>
 							</motion.div>
 						}
 					

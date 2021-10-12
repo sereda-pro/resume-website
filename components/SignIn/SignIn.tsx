@@ -6,45 +6,35 @@ import { Input, Htag, Button } from '../../components';
 import { useState } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAppDispatch } from '../../store/hooks';
+import { authUser } from '../../store/authSlice'; 
 
 export function SignIn( { registered, notification, className, children, ...props }: SignInProps ): JSX.Element {
 
-
+	const dispatch = useAppDispatch();
 	
 	const { register, handleSubmit, formState: {errors}, reset } = useForm<IFormSignIn>();
 	const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
 	const variants = {
 		hidden: {
-			//transform: 'translateX(100%)',
 			opacity: 0
 		},
 		visible: {
-			//transform: 'translateX(0%)',
 			opacity: 1
 		}
 	};
 
-	const onSubmit = async (formData: IFormSignIn) => {
+	const onSubmit = (formData: IFormSignIn) => {
 		
 		const authData={
 			email: formData.email,
 			password: formData.password,
-			returnSecureToken: true
+			returnSecureToken: true,
+			isLogin: false,
 		};
 
-		try {
-			const { data } = await axios.post(process.env.NEXT_PUBLIC_DB_SIGNUP, authData);
-			if (data) {
-				console.log(data);
-				setIsSuccess(true);
-				reset();
-			} else {
-				notification && notification('Что-то пошло не так...');
-			}
-		} catch (e) {
-			console.log(e);
-		}
+		dispatch(authUser(authData));
 	};
 
 
@@ -58,7 +48,7 @@ export function SignIn( { registered, notification, className, children, ...prop
 				transition={{duration: 1.5}}
 				variants={variants}
 			>
-				<Htag tag='h4' className={styles.htag}>SignIn</Htag>
+				<Htag tag='h4' className={styles.htag}>SignUp</Htag>
 
 				<form onSubmit={handleSubmit(onSubmit)}>
 

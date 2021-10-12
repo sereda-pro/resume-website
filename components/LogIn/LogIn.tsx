@@ -1,58 +1,53 @@
-import { LogInProps, IFormLogIn, ISendFormLogIn } from './LogIn.props';
+import { LogInProps, IFormLogIn } from './LogIn.props';
 import styles from './LogIn.module.scss';
 import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import { Input, Htag, Button } from '..';
-import { useState } from 'react';
-import axios from 'axios';
-import { motion, AnimatePresence } from 'framer-motion'; 
+import { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { authUser, autoLogin } from '../../store/authSlice';
+import { useRouter } from 'next/router';
 
 
 export function LogIn( {registered, notification, className, children, ...props }: LogInProps ): JSX.Element {
 
+	const router = useRouter();
+	const dispatch = useAppDispatch();
+	const token = useAppSelector(state => state.auth.token);
 
-	//const [signIn, setSignIn] = useState<string>('login');
+	useEffect(() => {
+		dispatch(autoLogin());
+	});
+
+	useEffect(() => {
+		if (token) {
+			router.push('/devResume');
+		}
+	}, [token]);
+	
 	const { register, handleSubmit, formState: {errors}, reset } = useForm<IFormLogIn>();
-	const [isSuccess, setIsSuccess] = useState<boolean>(false);
-	//const [error, setIsError] = useState<string>('');
 
 	const variants = {
 		hidden: {
-			//transform: 'translateX(100%)',
 			opacity: 0
 		},
 		visible: {
-			//transform: 'translateX(0%)',
 			opacity: 1
 		}
 	};
 
-	const onSubmit = async (formData: IFormLogIn) => {
-		
+	const onSubmit = (formData: IFormLogIn) => {
 		const authData={
 			email: formData.email,
 			password: formData.password,
-			returnSecureToken: true
+			returnSecureToken: true,
+			isLogin: true,
 		};
-
-		try {
-			const { data } = await axios.post(
-				process.env.NEXT_PUBLIC_DB_LOGIN,
-				authData);
-			if (data) {
-				console.log(data);
-				setIsSuccess(true);
-				reset();
-			} else {
-				notification && notification('Что-то пошло не так...');
-			}
-		} catch (e) {
-			console.log(e);
-		}
+		dispatch(authUser(authData));
 	};
 	
 	return (
-		
 		<AnimatePresence>
 			<motion.div 
 				className={styles.form}
@@ -66,6 +61,7 @@ export function LogIn( {registered, notification, className, children, ...props 
 
 				<form 
 					onSubmit={handleSubmit(onSubmit)}
+					autoComplete="off"
 				>
 
 						<Input 
@@ -105,6 +101,5 @@ export function LogIn( {registered, notification, className, children, ...props 
 				</form>
 			</motion.div>
 		</AnimatePresence>
-		
 	);
 }
