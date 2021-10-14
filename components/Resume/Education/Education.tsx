@@ -49,20 +49,19 @@ export function Education( {className, children, ...props }: EducationProps ): J
 							</ul>
 						</div>
 
-						<div className={styles.info}>
+						{/* <div className={styles.info}> */}
 							<div className={styles.story}>
 								<h2>Высшее образование</h2>
 								<p>
-									АГПИ им. А.П.Гайдара (г. Арзамас, сейчас это ННГУ им. Н.И. Лобачевского)<br/>
-									образование - высшее, <br/>
-									факультет: физико-математический
+									АГПИ им. А.П.Гайдара (г. Арзамас, сейчас это ННГУ им. Н.И. Лобачевского),
+									факультет: физико-математический.
 								</p>
 								<h2>Курсы дополнительного образования</h2>
-								<div className={styles.other}>
+								<div className={styles.wrap_courses}>
 									{courses}
 								</div>
 							</div>
-						</div>
+						{/* </div> */}
 
 					</div>
 				</Container>

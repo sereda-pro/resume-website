@@ -15,7 +15,7 @@ export function Header( {className, children, ...props }: HeaderProps ): JSX.Ele
 	const nav = [
 		{title: 'Обо мне', link: '#', anchor: 'profile'},
 		{title: 'Skils', link: '#', anchor: 'skils'},
-		{title: 'Soft skils', link: '#', anchor: 'softskils'},
+		{title: 'Soft skills', link: '#', anchor: 'softskills'},
 		{title: 'Образование', link: '#', anchor: 'education'},
 	];
 
