@@ -1,0 +1,28 @@
+@import '../../styles/colors';
+
+.eAuth {
+	height: 100vh;
+	width: 100%;
+	background-color: $bg-black1;
+	color: $t-white;
+	text-align: center;
+	display: grid;
+	align-content: center;
+	justify-content: center;
+
+
+	.msg_wrap {
+		.emojio {
+			font-size: 40px;
+			margin: 20px auto;
+		}
+
+		p {
+			font-size: 14px;
+			margin: 40px auto;
+			width: 300px;
+			text-align: center;
+		}
+	}
+}
+

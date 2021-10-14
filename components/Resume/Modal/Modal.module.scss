@@ -1,0 +1,56 @@
+@import '../../../styles/colors';
+
+.modal {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.5s;
+
+	//color: $black;
+
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+	}
+
+	.modal_content {
+		padding: 20px;
+		border-radius: 8px;
+		background-color: white;
+		//width: 850px;
+		transform: scale(0);
+		opacity: 0;
+		transition: 0.5s all;
+
+		&.active {
+			transform: scale(1);
+			opacity: 1;
+		}
+
+		img {
+			height: 600px;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		& .modal_content {
+			width: 700px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		& .modal_content {
+			width: 90vw;
+		}
+	}
+}

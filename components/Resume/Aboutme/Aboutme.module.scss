@@ -1,0 +1,111 @@
+@import '../../../styles/colors';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500&display=swap');
+
+.aboutme {
+	position: relative;
+	padding: 80px 0;
+	display: grid;
+	grid-template-columns: 1fr 1.5fr 1.5fr;
+	column-gap: 30px;
+
+	.hello {
+		position: relative;
+
+		h1 {
+			font-family: 'Roboto Slab', serif;
+			font-weight: 300;
+			font-size: 26px;
+			transform: rotate(-5deg);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 300px;
+		}
+
+		p {
+			position: absolute;
+			top: 130px;
+			left: 80px;
+			width: 380px;
+			margin-top: 60px;
+			font-size: 14px;
+			line-height: 20px;
+			background-color: $bg-black2;
+			padding: 15px;
+			border-radius: 20px;
+			z-index: 100;
+		}
+	}
+
+	.photo {
+		position: relative;
+		left: 80px;
+		z-index: 0;
+		transition: 0.4s;
+
+		img {
+			height: 350px;
+			border-radius: 20px;
+			transform: rotate(10deg);
+		}
+
+		&::before {
+			content: '';
+			border: 2px solid $c-yellow;
+			border-radius: 20px;
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			height: 350px;
+			width: 350px;
+			z-index: -100;
+		}
+
+		&::before:hover {
+				
+		}
+	}
+
+	.contacts {
+		position: relative;
+		display: grid;
+		align-content: end;
+		//justify-items: center;
+		//margin-top: 200px;
+		margin-left: 100px;
+		//text-align: end;
+
+		.htag {
+			//color: white;
+			//background-color: $bg-black2;
+			width: 110px;
+			//border-radius: 8px;
+			//padding: 0px 10px;
+
+			
+			margin: 2px 5px 2px 0;
+			background-color: $bg-black2;
+			padding: 3px 5px;
+			border-radius: 5px;
+			color: $t-grey;
+			font-size: 12px;
+
+		}
+
+		p {
+			margin-left: 5px;
+			font-size: 16px;
+		}
+
+		svg {
+			height: 60px;
+			margin-left: 20px;
+		}
+	}
+
+}
+
+
+
+

@@ -1,0 +1,139 @@
+@import '../../../styles/colors';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500&display=swap');
+
+.skils {
+	position: relative;
+	padding: 80px 0;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	column-gap: 10px;
+
+	p {
+		font-size: 14px;
+		line-height: 20px;
+		margin: 5px 0;
+		text-indent: 30px;
+
+		mark {
+			font-size: 15px;
+			background-color: yellowgreen;
+			border-radius: 2px;
+			padding: 0 2px;
+		}
+	}
+
+	.title {
+		padding: 50px 0;
+
+		h1 {
+			font-family: 'Roboto Slab', serif;
+			font-weight: 400;
+			font-size: 26px;
+			position: relative;
+
+			&::before {
+				content: "Skils";
+				position: absolute;
+				font-size: 50px;
+				font-weight: 600;
+				top: -70px;
+				left: 60px;
+				color: $t-grey;
+				opacity: 8%;
+				transform: rotate(10deg);
+			}
+			
+		}
+
+		ul {
+			margin-top: 40px;
+			padding: 0 30px 0 0;
+		}
+	}
+
+	.info {
+		
+		.story {
+			background-color: $bg-black2;
+			border-radius: 20px;
+			padding: 20px 20px;
+			margin-bottom: 30px;
+
+			h2 {
+				font-family: 'Roboto Slab', serif;
+				font-weight: 300;
+				font-size: 20px;
+			}
+		}
+
+		.skils_app {
+			position: relative;
+
+			a {
+				text-decoration: none;
+				color: $c-yellow;	
+			}
+
+			.skils_app_item {
+				position: relative;
+
+				.tech {
+					margin-left: 20px;
+					height: 130px;
+					width: 130px;
+					border: 2px solid $c-yellow;
+					border-radius: 50%;
+					background-color: $c-yellow;
+					display: grid;
+					justify-content: center;
+					align-content: center;
+
+					.htag {
+						text-align: center;
+						color: $bg-black2;
+					}
+				}
+
+				.arrow {
+					height: 60px;
+					width: 10px;
+					margin: 20px 0 20px 20px;
+					border-right: 10px dotted $bg-black2;
+					position: relative;
+					left: 60px;
+				}
+
+				.description {
+					position: absolute;
+					top: 20px;
+					left: 190px;
+					margin-right: 20px;
+					text-align: justify;
+				}
+			}
+		}
+
+		.description2 {
+			background-color: $bg-black2;
+			border-radius: 20px;
+			padding: 20px 20px;
+			margin: 30px 0;
+		}
+	}
+
+}
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+

@@ -5,3 +5,5 @@ export * from './TodoInputField/TodoInputField';
 export * from './TodoList/TodoList';
 export * from './TodoItem/TodoItem';
 export * from './Logout/Logout';
+export * from './EAuth/EAuth';
+export * from './Resume/Resume';

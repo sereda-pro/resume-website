@@ -1,10 +1,11 @@
-import styles from './DevResumePage.module.scss';
+//import styles from './DevResumePage.module.scss';
 import { DevResumePageProps } from './DevResumePage.props';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { autoLogin } from '../../store/authSlice';
 import { Logout } from '../../components';
+import { EAuth, Resume  } from '../../components';
 
 
 export const DevResumePage = ({children, ...props}: DevResumePageProps) => {
@@ -13,24 +14,20 @@ export const DevResumePage = ({children, ...props}: DevResumePageProps) => {
 	const dispatch = useAppDispatch();
 	dispatch(autoLogin());
 	const token = useAppSelector(state => state.auth.token);
+	const [authorized, setAuthorized] = useState<string | null>(null);
+
 	useEffect(() => {
 		if (!token) {
-			console.log('переход на главную страницу');
-			setTimeout(() => router.push('/'), 2000);
+			//console.log('переход на главную страницу');
+			setTimeout(() => router.push('/'), 5000);
+		} else {
+			setAuthorized(token);
 		}	
 	}, [token]);
 
 	return (
 		<>
-			{token ? 
-				<div className={styles.devResume}>
-					Резюме
-					<Logout />
-				</div>  
-			: 
-				<h1>Пока</h1>
-			}
-
+			{authorized ? <Resume /> : <EAuth />}
 		</>
 	);
 };
