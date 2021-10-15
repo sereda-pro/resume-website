@@ -1,6 +1,4 @@
-//import { EAuthProps } from './EAuth.props';
 import styles from './EAuth.module.scss';
-import cn from 'classnames';
 import { Htag } from '../UI';
 
 

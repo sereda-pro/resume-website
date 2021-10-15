@@ -81,7 +81,7 @@ export const deteleTodo = createAsyncThunk(
 export const toggleStatus = createAsyncThunk(
 	'todos/toggleStatus',
 	async function ({id}: {id: string}, {rejectWithValue, dispatch, getState}) {
-		const todo: ITodo = getState().todos.todos.find(todo => todo.id === id);
+		const todo: ITodo = (getState() as any).todos.todos.find((todo: ITodo) => todo.id === id);
 
 		try {
 			const response = await axios({
@@ -155,7 +155,7 @@ const todoSlice = createSlice({
 	initialState,
 
 	reducers: {
-		addTodo(state, action: PayloadAction<{title: string}>) {
+		addTodo(state, action: PayloadAction<ITodo>) {
 			state.todos.push(action.payload);
 		},
 		removeTodo(state, action: PayloadAction<{id: string}>) {

@@ -1,0 +1,8 @@
+version: '3'
+services:
+    app:
+        image: sereda-pro
+        container_name: app-sereda-pro
+        restart: always
+        ports:
+            - 3000:3030
