@@ -27,21 +27,15 @@ export const authUser = createAsyncThunk(
 	'auth/authUser',
 	async function (formData: IFormData, {rejectWithValue, dispatch}) {
 
-		const authData={
-			email: formData.email,
-			password: formData.password,
-			returnSecureToken: true
-		};
-
-		const URL = formData.isLogin ? process.env.NEXT_PUBLIC_DB_LOGIN : process.env.NEXT_PUBLIC_DB_SIGNUP;
-
 		try {
+
 			const response = await axios({
 				method: 'POST',
-				url: URL,
-				data: authData
-
+				url: '/api/user/auth',
+				data: formData,//authData,
 			});
+
+			console.log(response);
 
 			const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
 

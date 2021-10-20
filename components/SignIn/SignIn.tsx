@@ -3,15 +3,24 @@ import styles from './SignIn.module.scss';
 import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import { Input, Htag, Button } from '../../components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { authUser } from '../../store/authSlice'; 
+import { useRouter } from 'next/router';
 
 export function SignIn( { registered, notification, className, children, ...props }: SignInProps ): JSX.Element {
 
+	const router = useRouter();
 	const dispatch = useAppDispatch();
+	const token = useAppSelector(state => state.auth.token);
+
+	useEffect(() => {
+		if (token) {
+			router.push('/devResume');
+		}
+	}, [token]);
 	
 	const { register, handleSubmit, formState: {errors}, reset } = useForm<IFormSignIn>();
 	const [isSuccess, setIsSuccess] = useState<boolean>(false);
